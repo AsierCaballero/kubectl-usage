@@ -1,0 +1,52 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: usage
+spec:
+  version: "v0.1.0"
+  homepage: https://github.com/AsierCaballero/kubectl-usage
+  shortDescription: Analyze pod resource usage against requests/limits
+  description: |
+    A kubectl plugin that analyzes pod resource consumption and compares
+    it against configured requests and limits. Detects over-provisioned
+    resources and provides downsizing recommendations based on actual
+    usage from the Kubernetes Metrics API.
+
+    Features:
+    - Compare CPU/memory requests against real usage
+    - Calculate waste percentage per pod
+    - Get right-sized recommendations (usage x 1.2)
+    - Filter by namespace, deployment, or labels
+    - JSON output for automation
+    - Color-coded severity levels
+
+    Requires the Kubernetes Metrics Server to be installed.
+  platforms:
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: amd64
+      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.0/kubectl-usage_v0.1.0_darwin_amd64.tar.gz
+      sha256: ""
+      bin: kubectl-usage
+    - selector:
+        matchLabels:
+          os: darwin
+          arch: arm64
+      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.0/kubectl-usage_v0.1.0_darwin_arm64.tar.gz
+      sha256: ""
+      bin: kubectl-usage
+    - selector:
+        matchLabels:
+          os: linux
+          arch: amd64
+      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.0/kubectl-usage_v0.1.0_linux_amd64.tar.gz
+      sha256: ""
+      bin: kubectl-usage
+    - selector:
+        matchLabels:
+          os: linux
+          arch: arm64
+      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.0/kubectl-usage_v0.1.0_linux_arm64.tar.gz
+      sha256: ""
+      bin: kubectl-usage
