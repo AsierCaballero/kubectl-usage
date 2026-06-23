@@ -3,7 +3,7 @@ kind: Plugin
 metadata:
   name: usage
 spec:
-  version: "v0.1.0"
+  version: "v0.1.1"
   homepage: https://github.com/AsierCaballero/kubectl-usage
   shortDescription: Analyze pod resource usage against requests/limits
   description: |
@@ -26,27 +26,39 @@ spec:
         matchLabels:
           os: darwin
           arch: amd64
-      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.0/kubectl-usage_v0.1.0_darwin_amd64.tar.gz
+      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.1/kubectl-usage_v0.1.1_darwin_amd64.tar.gz
       sha256: ""
       bin: kubectl-usage
+      files:
+        - from: LICENSE
+          to: .
     - selector:
         matchLabels:
           os: darwin
           arch: arm64
-      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.0/kubectl-usage_v0.1.0_darwin_arm64.tar.gz
+      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.1/kubectl-usage_v0.1.1_darwin_arm64.tar.gz
       sha256: ""
       bin: kubectl-usage
+      files:
+        - from: LICENSE
+          to: .
     - selector:
         matchLabels:
           os: linux
           arch: amd64
-      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.0/kubectl-usage_v0.1.0_linux_amd64.tar.gz
+      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.1/kubectl-usage_v0.1.1_linux_amd64.tar.gz
       sha256: ""
       bin: kubectl-usage
+      files:
+        - from: LICENSE
+          to: .
     - selector:
         matchLabels:
           os: linux
           arch: arm64
-      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.0/kubectl-usage_v0.1.0_linux_arm64.tar.gz
+      uri: https://github.com/AsierCaballero/kubectl-usage/releases/download/v0.1.1/kubectl-usage_v0.1.1_linux_arm64.tar.gz
       sha256: ""
       bin: kubectl-usage
+      files:
+        - from: LICENSE
+          to: .
