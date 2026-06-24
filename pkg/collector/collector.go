@@ -61,7 +61,7 @@ func (c *Collector) Collect(ctx context.Context, opts Options) ([]types.PodResou
 				MemoryLimit:  container.Resources.Limits.Memory(),
 				ContainerName: container.Name,
 				RestartCount: getRestartCount(pod),
-				Age:          formatAge(pod.CreationTimestamp.Time),
+				Age:          formatAge(pod.CreationTimestamp),
 			}
 
 			if metrics, ok := usageMap[pod.Namespace+"/"+pod.Name]; ok {
@@ -82,7 +82,7 @@ func (c *Collector) Collect(ctx context.Context, opts Options) ([]types.PodResou
 }
 
 func (c *Collector) listPods(ctx context.Context, opts Options) ([]corev1.Pod, error) {
-	var listOpts metav1.ListOptions{}
+	listOpts := metav1.ListOptions{}
 	if opts.LabelSelector != "" {
 		listOpts.LabelSelector = opts.LabelSelector
 	}
@@ -158,8 +158,6 @@ func getRestartCount(pod corev1.Pod) int32 {
 	return total
 }
 
-func formatAge(timestamp metav1.Time) string {
-	// Handled in output formatting using PodResource directly
-	_ = timestamp
-	return ""
+func formatAge(t metav1.Time) string {
+	return t.Time.Format("2006-01-02")
 }
